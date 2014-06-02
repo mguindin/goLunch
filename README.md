@@ -2,7 +2,8 @@ goLunch
 =======
 
 Go version of nodeLunch
-
+You need to have a yelp [API key](http://www.yelp.com/developers/getting_started) in a file called ```yelp_key```
+in the ```bin``` directory with the ```lunch``` binary.
 Made using codegangsta's [cli library](https://github.com/codegangsta/cli)
 ```bash
 USAGE:
@@ -19,6 +20,23 @@ GLOBAL OPTIONS:
    --generate-bash-completion
    --version, -v                print the version
    --help, -h                   show help
+   
+./lunch s -h
+NAME:
+   search - Search for lunch
+
+USAGE:
+   command search [command options] [arguments...]
+
+DESCRIPTION:
+
+
+OPTIONS:
+   --debug              Output request URL
+   --cuisine 'random'   cuisine to search for
+   --radius '0.5'       Radius for search
+   --location '10021'   Location to search from
+   --choice '1'         Choice in selection
 ```
    
 Example usage:
