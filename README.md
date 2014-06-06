@@ -1,6 +1,6 @@
 goLunch
 =======
-
+![Travis build status](https://travis-ci.org/mguindin/goLunch.svg?branch=master)
 Go version of nodeLunch
 You need to have a yelp [API key](http://www.yelp.com/developers/getting_started) in a file called ```yelp_key```
 in the ```bin``` directory with the ```lunch``` binary.
