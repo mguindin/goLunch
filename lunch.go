@@ -3,7 +3,7 @@ package main
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/mguindin/goLunch/third_party/github.com/codegangsta/cli"
+	"github.com/codegangsta/cli"
 	"io/ioutil"
 	"math"
 	"net/http"
