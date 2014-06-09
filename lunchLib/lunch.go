@@ -19,18 +19,18 @@ type Lunch struct {
 	Choice                              int
 }
 
-func (lunch *Lunch) BuildYelpUrl() string {
+func (lunch *Lunch) BuildYelpUrl(yelp_key string) string {
 	return lunch.Yelp_url +
 			"term=" + lunch.Cuisine +
 			"&location=" + lunch.Location +
 			"&radius=" + lunch.Radius +
 			"&limit=20" +
-			"&ywsid=" + GetYelpKey() +
+			"&ywsid=" + yelp_key +
 			"&category=restaurants"
 }
 
-func (lunch *Lunch) MakeRequest() []byte {
-	resp, err := http.Get(lunch.BuildYelpUrl())
+func (lunch *Lunch) MakeRequest(yelp_key string) []byte {
+	resp, err := http.Get(lunch.BuildYelpUrl(yelp_key))
 	if err != nil {
 		panic(err)
 	}
@@ -56,7 +56,7 @@ func (lunch *Lunch) ProcessYelpReturn(ret []byte) string {
 	out += "You will be having " + restaurant["name"].(string) +
 			", which is located at " + restaurant["address1"].(string) + ".\n"
 	rating := restaurant["avg_rating"].(float64)
-	out += restaurant["name"].(string) + " has a rating of " + strconv.FormatFloat(rating, 'f', -1, 64)
+	out += restaurant["name"].(string) + " has a rating of " + strconv.FormatFloat(rating, 'f', -1, 64) + "\n"
 	reviews := restaurant["reviews"].([]interface{})
 	for _, val := range reviews {
 		m := val.(map[string]interface{})

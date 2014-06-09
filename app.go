@@ -43,9 +43,10 @@ func run(c *cli.Context) {
 		Rating:   0,
 		Rev:      make(map[string]interface{}),
 		Choice:   c.Int("choice")}
+	yelp_key := lunchLib.GetYelpKey()
 	if lunch.Debug {
-		fmt.Println(lunch.BuildYelpUrl())
+		fmt.Println(lunch.BuildYelpUrl(yelp_key))
 		fmt.Printf("%+v\n", lunch)
 	}
-	fmt.Print(lunch.ProcessYelpReturn(lunch.MakeRequest()))
+	fmt.Print(lunch.ProcessYelpReturn(lunch.MakeRequest(yelp_key)))
 }
