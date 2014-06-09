@@ -1,2 +1,4 @@
 *.swp
 yelp_key
+.idea/
+*.iml
