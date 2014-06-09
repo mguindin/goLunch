@@ -22,7 +22,7 @@ type Lunch struct {
 func (lunch *Lunch) BuildYelpUrl(yelp_key string) string {
 	return lunch.Yelp_url +
 			"term=" + lunch.Cuisine +
-			"&location=" + lunch.Location +
+			lunch.Location +
 			"&radius=" + lunch.Radius +
 			"&limit=20" +
 			"&ywsid=" + yelp_key +

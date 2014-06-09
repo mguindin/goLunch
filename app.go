@@ -36,7 +36,7 @@ func main() {
 func run(c *cli.Context) {
 	lunch := lunchLib.Lunch{
 		Radius:   c.String("radius"),
-		Location: c.String("location"),
+		Location: "&location=" + c.String("location"),
 		Debug:    c.Bool("debug"),
 		Cuisine:  c.String("cuisine"),
 		Yelp_url: "http://api.yelp.com/business_review_search?",
