@@ -52,7 +52,13 @@ func (lunch *Lunch) ProcessYelpReturn(ret []byte) string {
 		fmt.Printf("message %+v\n", dat["message"])
 	}
 	businesses := dat["businesses"].([]interface{})
-	restaurant := businesses[0].(map[string]interface{})
+	if (len(businesses) > lunch.Choice) {
+		lunch.Choice = len(businesses) -1
+	}
+	if (len(businesses) == 0) {
+		return "No entries returned.  Please try again"
+	}
+	restaurant := businesses[lunch.Choice].(map[string]interface{})
 	out += "You will be having " + restaurant["name"].(string) +
 			", which is located at " + restaurant["address1"].(string) + ".\n"
 	rating := restaurant["avg_rating"].(float64)
